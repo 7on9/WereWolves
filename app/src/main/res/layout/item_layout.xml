@@ -1,35 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/line">
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+    android:background="#FAFAFA"
+    android:id="@+id/line"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp">
     <TextView
         android:id="@+id/txtRole"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="150px"
         android:layout_weight="1"
         android:gravity="center"
         android:text="Role"
-        android:textSize="30dp"/>
+        android:background="#FFFFFF"
+        android:textSize="20dp"/>
     <ImageView
         android:id="@+id/imgRole"
+        android:src="@drawable/badong"
         android:layout_width="150px"
         android:layout_height="150px"/>
-    <EditText
-        android:id="@+id/editTxtNum"
-        android:layout_width="150px"
-        android:layout_height="150px"
-        android:maxLines="1"
-        android:phoneNumber="true"
+    <TextView
+        android:id="@+id/txtNumOrder"
         android:background="#A08B7E"
         android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:text="0"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:gravity="center"
-        android:hint="0"/>
-    </TableRow>
-</TableLayout>
+        android:layout_width="150px"
+        android:layout_height="150px"/>
+    <LinearLayout
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="+"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            android:background="#A08B7E"
+            android:layout_marginLeft="1dp" />
+        <Button
+            android:id="@+id/btnSub"
+            android:layout_marginTop="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="-"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            android:background="#A08B7E"
+            android:layout_marginLeft="1dp"/>
+    </LinearLayout>
+</LinearLayout>
