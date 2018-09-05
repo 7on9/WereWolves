@@ -17,7 +17,7 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
-    List<Card> cards = new ArrayList<>();
+    public static List<Card> cards = new ArrayList<>();
     private Context context;
     private LayoutInflater layoutInflater;
 
@@ -70,13 +70,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.txtRole.setText(cards.get(id).getName());
             int idPath = context.getResources().getIdentifier("com.vnbamboo.werewolves:drawable/" + cards.get(position).getPath(), null, null);
             this.imgRole.setImageResource(idPath);
-            txtNumOrder.setText(Integer.toString(cards.get(id).getNumOrder()));
+            txtNumOrder.setText(Byte.toString(cards.get(id).getNumOrder()));
             //Log.d("RecyclerView", "btn ：" + getAdapterPosition());
             btnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick( View v ) {
                     //Log.d("RecyclerView", "onClick btn plus：" + getAdapterPosition() + " " + getLayoutPosition() + " " + cards.get(id).getNumOrder());
-                    cards.get(id).setNumOrder(cards.get(id).getNumOrder() + 1);
+                    cards.get(id).setNumOrder((byte) (cards.get(id).getNumOrder() + 1));
                     txtNumOrder.setText(Integer.toString(cards.get(id).getNumOrder()));
                 }
             });
@@ -84,7 +84,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 @Override
                 public void onClick( View v ) {
                     //Log.d("RecyclerView", "onClick btn sub：" + getAdapterPosition() + " " + getLayoutPosition() + " " + id);
-                    cards.get(id).setNumOrder(Integer.max(cards.get(id).getNumOrder() - 1, 0));
+                    cards.get(id).setNumOrder((byte) Integer.max(cards.get(id).getNumOrder() - 1, 0));
                     txtNumOrder.setText(Integer.toString(cards.get(id).getNumOrder()));
                 }
             });

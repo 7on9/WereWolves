@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
-
+                cards = RecyclerViewAdapter.cards;
             }
         });
     }
@@ -74,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
                 "Thợ săn",
                 "Tiên tri",
                 "Ti hí"};
-        for(int i = 0; i < FULL_ROLE_NAME.length; i++){
+        for(byte i = 0; i < FULL_ROLE_NAME.length; i++){
             Card temp = new Card(i, FULL_ROLE_NAME[i], PATH_IMG_ROLE[i]);
             cards.add(temp);
         }
