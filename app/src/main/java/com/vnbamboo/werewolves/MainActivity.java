@@ -38,20 +38,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        final EditText edtNumPlayer = (EditText) findViewById(R.id.edtNumPlayer);
         Button btnPlay = (Button)findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
-                startMenuActivity(Byte.valueOf(edtNumPlayer.getText().toString()));
+                EditText edtNumPlayer = (EditText) findViewById(R.id.edtNumPlayer);
+                startMenuActivity(Byte.parseByte(edtNumPlayer.getText().toString()));
             }
         });
 
     }
 
-    public void startMenuActivity(byte numpPlayer){
+    public void startMenuActivity(byte numPlayer){
         Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra("numPlayer", numpPlayer);
+        intent.putExtra("numPlayer", numPlayer);
         this.startActivity(intent);
     }
 

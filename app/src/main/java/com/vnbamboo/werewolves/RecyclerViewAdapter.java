@@ -1,6 +1,8 @@
 package com.vnbamboo.werewolves;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 //import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +23,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public static List<Card> cards = new ArrayList<>();
     private Context context;
     private LayoutInflater layoutInflater;
-
-    public RecyclerViewAdapter(Context context, List<Card> cards){
+    private byte numPlayer;
+    byte total;
+    public RecyclerViewAdapter(Context context, List<Card> cards, byte numPlayer){
         this.cards = cards;
         this.context = context;
+        this.numPlayer = numPlayer;
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -75,17 +80,88 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             btnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick( View v ) {
-                    //Log.d("RecyclerView", "onClick btn plus：" + getAdapterPosition() + " " + getLayoutPosition() + " " + cards.get(id).getNumOrder());
                     cards.get(id).setNumOrder((byte) (cards.get(id).getNumOrder() + 1));
                     txtNumOrder.setText(Integer.toString(cards.get(id).getNumOrder()));
+                    total = 0;
+                    for (Card temp:cards) {
+                        total += temp.getNumOrder();
+                    }
+                    if (numPlayer > total)
+                    {
+                        final Toast toast = Toast.makeText(context, "Còn " + Integer.toString(numPlayer - total)+ " người chưa có vai trò!", Toast.LENGTH_SHORT);
+                        toast.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                toast.cancel();
+                            }
+                        }, 750);
+                    } else 
+                        if (numPlayer == total){
+                            final Toast toast = Toast.makeText(context, "Đã chọn đủ vai trò!", Toast.LENGTH_SHORT);
+                            toast.show();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    toast.cancel();
+                                }
+                            }, 750); 
+                        } else {
+                            final Toast toast = Toast.makeText(context, "Đã chọn dư " + Integer.toString(total - numPlayer)+ " vai trò!", Toast.LENGTH_SHORT);
+                            toast.show();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    toast.cancel();
+                                }
+                            }, 750);
+                        }
                 }
             });
             btnSub.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick( View v ) {
-                    //Log.d("RecyclerView", "onClick btn sub：" + getAdapterPosition() + " " + getLayoutPosition() + " " + id);
                     cards.get(id).setNumOrder((byte) Integer.max(cards.get(id).getNumOrder() - 1, 0));
                     txtNumOrder.setText(Integer.toString(cards.get(id).getNumOrder()));
+                    total = 0;
+                    for (Card temp:cards) {
+                        total += temp.getNumOrder();
+                    }
+                    if (numPlayer > total) {
+                        final Toast toast = Toast.makeText(context, "Còn " + Integer.toString(numPlayer - total)+ " người chưa có vai trò!", Toast.LENGTH_SHORT);
+                        toast.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                toast.cancel();
+                            }
+                        }, 750);
+                    } else 
+                        if (numPlayer == total){
+                        final Toast toast = Toast.makeText(context, "Đã chọn đủ vai trò!", Toast.LENGTH_SHORT);
+                        toast.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                toast.cancel();
+                            }
+                        }, 750);
+                    } else {
+                        final Toast toast = Toast.makeText(context, "Đã chọn dư " + Integer.toString(total - numPlayer)+ " vai trò!", Toast.LENGTH_SHORT);
+                        toast.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                toast.cancel();
+                            }
+                        }, 750);
+                    }
                 }
             });
         }
