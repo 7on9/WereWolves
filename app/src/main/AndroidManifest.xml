@@ -25,6 +25,9 @@
         <activity android:name=".ShowRoleActivity" android:noHistory="true">
 
         </activity>
+        <activity android:name=".ResultActivity" android:noHistory="false">
+
+        </activity>
     </application>
 
 </manifest>

@@ -13,12 +13,14 @@
         android:clickable="true"
         android:src="@drawable/card"/>
     <TextView
+        android:id="@+id/txtYourRole"
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="#B1BEA3"
+        android:gravity="center"
         android:text="Bấm vào lá bài để xem vai trò của bạn"
         android:layout_gravity="center"/>
     <Button
