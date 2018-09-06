@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#4F333E">
+    <ImageView
+        android:id="@+id/imgCard"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:clickable="true"
+        android:src="@drawable/card"/>
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#B1BEA3"
+        android:text="Bấm vào lá bài để xem vai trò của bạn"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:id="@+id/btnNextPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:background="@drawable/roundbutton"
+        android:layout_gravity="center"
+        android:text="OK!"/>
+</LinearLayout>

@@ -24,7 +24,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private Context context;
     private LayoutInflater layoutInflater;
     private byte numPlayer;
-    byte total;
+    public static byte total;
     public RecyclerViewAdapter(Context context, List<Card> cards, byte numPlayer){
         this.cards = cards;
         this.context = context;
