@@ -12,11 +12,12 @@ import android.widget.TextView;
 
 public class ShowRoleActivity extends AppCompatActivity {
 
+    boolean isOpened = false;
     @Override
     protected void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_role);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         final byte roleOfThisPlayer = getIntent().getByteExtra("Position", (byte) 0);
         final byte nextRole = (byte) (roleOfThisPlayer + 1);
@@ -24,7 +25,7 @@ public class ShowRoleActivity extends AppCompatActivity {
 
         //View thisView = this; // getLayoutInflater().inflate(R.layout.activity_next_player, null);
         final TextView txtYourRole = (TextView) findViewById(R.id.txtYourRole);
-        txtYourRole.setText("Bấm vào lá bài để xem vai trò của bạn!");
+        txtYourRole.setText(R.string.click_to_show);
         final ImageView card = (ImageView) findViewById(R.id.imgCard);
 
         card.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +33,7 @@ public class ShowRoleActivity extends AppCompatActivity {
             public void onClick( View v ) {
                 card.setImageResource(getResources().getIdentifier("com.vnbamboo.werewolves:drawable/" + MenuActivity.PATH_IMG_ROLE[cardOrder[roleOfThisPlayer]], null, null));
                 txtYourRole.setText( "Bạn là " + MenuActivity.FULL_ROLE_NAME[cardOrder[roleOfThisPlayer]]);
+                isOpened = true;
             }
         });
 
@@ -39,10 +41,11 @@ public class ShowRoleActivity extends AppCompatActivity {
         btnNextPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
-                if(nextRole == cardOrder.length)
-                    toResult(cardOrder);
-                else
-                    nextCard(cardOrder, nextRole);
+                if(isOpened)
+                    if(nextRole == cardOrder.length)
+                        toResult(cardOrder);
+                    else
+                        nextCard(cardOrder, nextRole);
             }
         });
     }

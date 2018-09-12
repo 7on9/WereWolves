@@ -4,33 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#4F333E">
+    android:background="#383B40">
     <ImageView
         android:id="@+id/imgCard"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_width="fill_parent"
+        android:layout_height="388dp"
         android:clickable="true"
         android:src="@drawable/card"/>
     <TextView
         android:id="@+id/txtYourRole"
         android:layout_weight="1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="@dimen/text_medium"
         android:textStyle="bold"
         android:textColor="#B1BEA3"
         android:gravity="center"
-        android:text="Bấm vào lá bài để xem vai trò của bạn"
+        android:text="@string/click_to_show"
         android:layout_gravity="center"/>
     <Button
         android:layout_marginTop="10dp"
-        android:layout_weight="1"
         android:id="@+id/btnNextPlayer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:textSize="40dp"
         android:background="@drawable/roundbutton"
         android:layout_gravity="center"
-        android:text="OK!"/>
+        android:text="OK!"
+        android:textColor="@color/colorTextDark"
+        android:fontFamily="@font/ghostz"/>
 </LinearLayout>

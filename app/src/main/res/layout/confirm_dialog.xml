@@ -12,12 +12,14 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/text_big"/>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Số lượng"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="@dimen/text_big"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,11 +29,13 @@
             android:text="Vai trò"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/text_small"/>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/txtNumColumn"
-            android:text="Số lượng"/>
+            android:text="Số lượng"
+            android:textSize="@dimen/text_small"/>
     </LinearLayout>
 </LinearLayout>

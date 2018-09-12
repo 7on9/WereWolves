@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Pocket WereWolves</string>
+    <string name="click_to_show">Hãy bấm vào lá bài để xem vai trò!</string>
+    <dimen name="text_big">25sp</dimen>
+    <dimen name="text_small">20sp</dimen>
+    <dimen name="text_medium">22.5sp</dimen>
 </resources>

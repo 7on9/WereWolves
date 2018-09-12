@@ -20,16 +20,17 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:text="Hãy đưa máy cho người tiếp theo"
+        android:textSize="@dimen/text_medium"
         android:textColor="#C2BEA4"
         android:textStyle="bold"/>
     <Button
         android:layout_marginTop="10dp"
         android:id="@+id/btnToShowCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:textSize="40dp"
         android:background="@drawable/roundbutton"
         android:layout_gravity="center"
-        android:textColor="#47403E"
+        android:textColor="@color/colorTextDark"
         android:text="Xem vai trò"/>
 </LinearLayout>

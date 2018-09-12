@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 public class NextPlayerActivity extends AppCompatActivity {
 
@@ -14,7 +13,7 @@ public class NextPlayerActivity extends AppCompatActivity {
     protected void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next_player);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
         final byte cardOrder[] = getIntent().getByteArrayExtra("Order list");
         final byte roleOfThisPlayer = getIntent().getByteExtra("Position", (byte) 0);

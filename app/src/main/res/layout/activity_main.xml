@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,24 +15,25 @@
         android:paddingBottom="10dp"
         android:layout_weight="1"
         android:text="@string/app_name"
-        android:textColor="#55392C"
         android:gravity="center"
         android:layout_gravity="center"
         android:textSize="50sp"
-        android:fontFamily="@font/ghostz"/>
+        android:fontFamily="@font/ghostz"
+        android:textColor="@color/colorTextDark"/>
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="2"
-        android:src="@drawable/app_logo" />
+        android:src="@mipmap/icon" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +42,8 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:text="Tạo 1 game cho "
-            android:textSize="20dp"/>
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/colorTextLight"/>
         <EditText
             android:id="@+id/edtNumPlayer"
             android:layout_width="50dp"
@@ -53,7 +55,9 @@
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:maxLength="2"
-            android:text="10"/>
+            android:text="9"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/text_small"/>
         <TextView
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -62,7 +66,8 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:text="người chơi"
-            android:textSize="20dp"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/colorTextLight"
             />
     </LinearLayout>
 
@@ -78,7 +83,7 @@
         android:textStyle="bold"
         android:textSize="40dp"
         android:fontFamily="@font/superscratchy"
-        android:textColor="#286696"
+        android:textColor="@color/colorTextDark"
         android:background="@drawable/roundbutton"
         />
 
@@ -89,5 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="10sp"
-        android:text="Bamboo®"/>
+        android:text="Bamboo®"
+        android:textColor="@color/colorTextLight"/>
 </LinearLayout>
