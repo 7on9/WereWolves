@@ -150,19 +150,24 @@ public class MenuActivity extends AppCompatActivity {
     }
     private byte[] generateCardOrder(){
         List<Byte> listId = new ArrayList<>();
+        List<Boolean> picked = new ArrayList<>();
+
         for (Card temp:cards) {
             if(temp.getNumOrder() > 0) {
                 for (byte i = 0; i < temp.getNumOrder(); i++) {
                     listId.add(temp.getId());
+                    picked.add(false);
                 }
             }
         }
         byte cardOrder[] = new byte[listId.size()];
-        byte iCardOrder = 0, remove = 0;
-        while (listId.size() > 0){
-            remove = randomNumber((byte) listId.size());
-            cardOrder[iCardOrder++] = (listId.get(remove));
-            listId.remove(remove);
+        byte iCardOrder = 0, card = 0;
+        while (iCardOrder < listId.size()){
+            do {
+                card = randomNumber((byte) listId.size());
+            } while (picked.get(card));
+            picked.set(card, true);
+            cardOrder[iCardOrder++] = (listId.get(card));
         }
         return cardOrder;
     }
